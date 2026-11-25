@@ -1,0 +1,108 @@
+{
+  "created_utc": "2026-11-26",
+  "event": {
+    "dataset": "Sen1Floods11 v1.1",
+    "location": "India, northeast",
+    "s1_date": "2016-08-12",
+    "orbit_direction": "DESCENDING",
+    "relative_orbit": 77,
+    "bbox_wgs84": [
+      92.15065,
+      24.84714,
+      94.16335,
+      28.28476
+    ]
+  },
+  "coverage_check": {
+    "sentinel1": {
+      "status": "catalogue_coverage_confirmed",
+      "note": "Three adjacent ASF GRD-HD products from the 2016-08-12 descending pass intersect the event bounds. Full bounds require all three; one scene covers a portion.",
+      "products": [
+        "S1A_IW_GRDH_1SDV_20160812T234716_20160812T234741_012574_013B43_E465",
+        "S1A_IW_GRDH_1SDV_20160812T234651_20160812T234716_012574_013B43_8C18",
+        "S1A_IW_GRDH_1SDV_20160812T234622_20160812T234651_012574_013B43_CFE9"
+      ]
+    },
+    "viirs": {
+      "status": "daily_product_tile_confirmed",
+      "product": "VNP46A2",
+      "date": "2016-08-12",
+      "tile": "h27v06",
+      "archive_file": "VNP46A2.A2016225.h27v06.002.2024282072040.h5",
+      "pixel_quality_checked": false
+    }
+  },
+  "downloaded": {
+    "sen1floods11_india_handlabeled": {
+      "status": "downloaded",
+      "layers": [
+        {
+          "name": "S1Hand",
+          "file_count": 68,
+          "total_bytes": 111031821.0,
+          "directory": "sen1floods11/v1.1/data/flood_events/HandLabeled/S1Hand"
+        },
+        {
+          "name": "LabelHand",
+          "file_count": 68,
+          "total_bytes": 609444.0,
+          "directory": "sen1floods11/v1.1/data/flood_events/HandLabeled/LabelHand"
+        },
+        {
+          "name": "S2Hand",
+          "file_count": 68,
+          "total_bytes": 158169648.0,
+          "directory": "sen1floods11/v1.1/data/flood_events/HandLabeled/S2Hand"
+        }
+      ],
+      "metadata": "Sen1Floods11_Metadata.geojson",
+      "source": "https://github.com/cloudtostreet/Sen1Floods11"
+    },
+    "worldcover_2020_v100": {
+      "status": "downloaded",
+      "files": [
+        "ESA_WorldCover_10m_2020_v100_N24E090_Map.tif",
+        "ESA_WorldCover_10m_2020_v100_N24E093_Map.tif",
+        "ESA_WorldCover_10m_2020_v100_N27E090_Map.tif",
+        "ESA_WorldCover_10m_2020_v100_N27E093_Map.tif"
+      ],
+      "source": "https://esa-worldcover.org/en/data-access"
+    },
+    "osm": {
+      "status": "downloaded",
+      "file": "north-eastern-zone-latest.osm.pbf",
+      "bytes": 110203301,
+      "source": "https://download.geofabrik.de/asia/india/index.html",
+      "vintage": "latest regional extract, not a historical 2016 snapshot"
+    },
+    "sentinel1a_tle": {
+      "status": "downloaded",
+      "file": "SENTINEL-1A_current.tle",
+      "epoch": "2026-11-24",
+      "source": "https://celestrak.org/NORAD/elements/gp.php?CATNR=39634&FORMAT=tle",
+      "note": "Current orbit elements; not valid for reconstructing a 2016 pass."
+    }
+  },
+  "pending": {
+    "sentinel1_scene": {
+      "status": "not_downloaded",
+      "reason": "ASF scene downloads require Earthdata Login",
+      "recommended_single_product": "S1A_IW_GRDH_1SDV_20160812T234651_20160812T234716_012574_013B43_8C18",
+      "note": "Download the other two adjacent products if full event-bounds coverage is needed."
+    },
+    "viirs": {
+      "status": "not_downloaded",
+      "reason": "LAADS download redirects to Earthdata Login",
+      "direct_file": "https://ladsweb.modaps.eosdis.nasa.gov/archive/allData/5200/VNP46A2/2016/225/VNP46A2.A2016225.h27v06.002.2024282072040.h5"
+    },
+    "ghsl": {
+      "status": "not_downloaded",
+      "reason": "Official JRC host timed out during download",
+      "product": "GHS-POP R2023A epoch 2015, WGS84, 3 arc-second",
+      "tile": "R9_C28",
+      "archive_size": "19 MB",
+      "direct_file": "https://jeodpp.jrc.ec.europa.eu/ftp/jrc-opendata/GHSL/GHS_POP_GLOBE_R2023A/GHS_POP_E2015_GLOBE_R2023A_4326_3ss/V1-0/tiles/GHS_POP_E2015_GLOBE_R2023A_4326_3ss_V1_0_R9_C28.zip"
+    }
+  },
+  "caveat": "Coverage means matching catalogue/archive products and spatial tiles exist. VIIRS pixel QA/usable radiance was not inspected."
+}
